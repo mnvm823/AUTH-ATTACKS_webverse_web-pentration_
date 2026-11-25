@@ -1,2 +1,2 @@
-# webverse_jr.web-pentration
+# Web-Verse AUTH-ATTACKS
 writeups
