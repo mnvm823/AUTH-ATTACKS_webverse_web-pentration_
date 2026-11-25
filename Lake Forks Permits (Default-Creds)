@@ -1,0 +1,40 @@
+# Lake Forks Permits -  Penetration Test Report 
+
+# Executive Summary
+
+During the security assessment of the Lake Forks County Permits & Licensing Portal, the staff login credentials were discovered and the internal staff portal was accessed. The default credentials (admin/admin) set during the 2018 Wescroft Civic Consulting redesign were left unchanged, despite the consultant's project binder noting "RESET BEFORE GOING LIVE."
+
+The internal staff records portal at `/staff/records` contained the requested flag in the permit-issuance signing key section: `WEBVERSE{8e5f8a6826b7d371b66b6f4a553458df}`.
+
+**Key findings:**
+- Default staff credentials were active and functional
+- Internal staff portal accessible with unauthorized access
+- Flag obtained: `WEBVERSE{8e5f8a682....8df}`
+
+**Security posture:** The organization has not implemented credential rotation or password policy enforcement. Immediate remediation is required to change default credentials and implement proper password management procedures.
+
+**Methodology:** Explored public-facing pages, identified staff login portal, discovered default credentials, authenticated to staff area, retrieved flag from internal signing key endpoint.
+
+# Methodology
+
+Web application security assessment focusing on staff authentication and internal access controls. Followed standard reconnaissance methodology: surface mapping, authentication flow analysis, and privileged content access verification.
+
+**technical_analysis_on_discovered_vulnerabilities
+
+# Technical Analysis
+
+The default staff credentials vulnerability was confirmed during the assessment. The flag was retrieved from the internal staff portal which displays sensitive operational and financial data including the daily permit-issuance signing key. The vulnerability stems from the failure to implement credential rotation and change default passwords following the 2018 platform redesign. The system appears to contain a signing key mechanism that may be critical for permit issuance security.
+
+**recommendations_on_discovered_vulnerabilities
+
+# Recommendations
+
+Immediate remediation required:
+1. Change default staff credentials immediately
+2. Implement mandatory password rotation policy
+3. Enable multi-factor authentication for staff accounts
+4. Conduct security audit of all default credential configurations
+5. Implement password complexity requirements and account lockout policies
+6. Review and update the staff login hint text to remove references to default credentials
+7. Consider implementing privileged access management (PAM) solutions
+
